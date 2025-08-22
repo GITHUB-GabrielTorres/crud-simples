@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colaboradores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 class="form-control">Local de Gerenciamento de Colaboradores</h1>
+    <div class="container">
+        <form action="{% url 'novo_colaborador' %}" method="POST">
+            {% csrf_token %}
+            <br>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" class="form-control">
+            <br>
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" name="sobrenome" id="sobrenome" class="form-control">
+            <br>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" class="form-control">
+            <br><br>
+            <input type="submit" value="Criar Funcionário" class="btn btn-primary">
+        </form>
+        <hr>
+        <!-- Tabela -->
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Deletar</th>
+                <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in colaboradores %}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.nome}}</td>
+                    <td>{{i.sobrenome}}</td>
+                    <td>{{i.email}}</td>
+                    <td>
+                        <a href="{% url 'deletar_colaborador' i.id %}" class="btn btn-danger">Deletar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'editar_colaborador' i.id %}" class="btn btn-secondary">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>
