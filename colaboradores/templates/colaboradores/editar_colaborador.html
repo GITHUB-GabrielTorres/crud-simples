@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -5,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Editar Colaborador</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'colaboradores/css/colaboradores.css' %}">
   </head>
   <body>
-    <h1 class="form-control">Editar o Colaborador {{ colaborador.nome }}</h1>
+    <h1 class="form-control">Editar o Colaborador <span class="nome">{{ colaborador.nome }}</span></h1>
     <div class="container">
         <form action="{% url 'editar_colaborador' colaborador.id %}" method="POST">
             {% csrf_token %}

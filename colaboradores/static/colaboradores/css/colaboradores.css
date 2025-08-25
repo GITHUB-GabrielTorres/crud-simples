@@ -1,0 +1,9 @@
+h1{
+    color: #323232 !important;
+    font-weight: 600 !important;
+    font-size: 1.5vw !important;
+}
+span.nome{
+    color: #933;
+    text-decoration: underline;
+}

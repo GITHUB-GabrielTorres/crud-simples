@@ -4,7 +4,7 @@ from .models import Colaborador
 def novo_colaborador(request):
     if request.method == 'GET':
         todos_colaboradores = Colaborador.objects.all()
-        return render(request, 'novo_colaborador.html', {'colaboradores':todos_colaboradores})
+        return render(request, 'colaboradores/novo_colaborador.html', {'colaboradores':todos_colaboradores})
     if request.method == 'POST':
         nome = request.POST.get('nome')
         sobrenome =  request.POST.get('sobrenome')
@@ -29,7 +29,7 @@ def deletar_colaborador(request, id):
 def editar_colaborador(request, id):
     colaborador_selecionado = Colaborador.objects.get(id=id)
     if request.method == 'GET':
-        return render(request, 'editar_colaborador.html', {'colaborador':colaborador_selecionado})
+        return render(request, 'colaboradores/editar_colaborador.html', {'colaborador':colaborador_selecionado})
     if request.method == 'POST':
         nome = request.POST.get('nome')
         sobrenome = request.POST.get('sobrenome')
