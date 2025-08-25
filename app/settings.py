@@ -125,7 +125,8 @@ USE_TZ = True
 # Caminho inicial para arquivos estáticos
 STATIC_URL = '/static/'
 # Locais extras (fora de app) que também devem ser olhados para coletar arquivos estáticos
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
+
 # Onde o collectstatic salvará as cópias dos arquivos estáticos
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
